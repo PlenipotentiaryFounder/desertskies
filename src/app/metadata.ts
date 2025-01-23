@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const defaultMetadata: Metadata = {
+const defaultMetadata = {
   title: {
     default: 'Desert Skies Aviation | Flight Training in Arizona',
     template: '%s | Desert Skies Aviation',
@@ -63,16 +63,14 @@ const defaultMetadata: Metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
-};
+} as const;
 
 export const getMetadata = (
   title?: string,
   description?: string,
   images?: string[]
 ): Metadata => {
-  const defaultTitle = defaultMetadata.title && typeof defaultMetadata.title === 'object' 
-    ? defaultMetadata.title.default 
-    : 'Desert Skies Aviation | Flight Training in Arizona';
+  const defaultTitle = defaultMetadata.title.default;
 
   return {
     ...defaultMetadata,
