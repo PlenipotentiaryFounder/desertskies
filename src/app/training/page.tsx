@@ -13,7 +13,7 @@ export default function TrainingPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-10 
               transition-opacity duration-500 group-hover:opacity-75" />
             <Image
-              src="/images/general-aviation.jpg"
+              src="/images/general-aviation.JPG"
               alt="General Aviation Training"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -41,7 +41,7 @@ export default function TrainingPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-10 
               transition-opacity duration-500 group-hover:opacity-75" />
             <Image
-              src="/images/career-pilots.jpg"
+              src="/images/career-pilots.JPG"
               alt="Career Pilot Training"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"

@@ -33,7 +33,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="/images/general-aviation.jpg"
+                  src="/images/general-aviation.JPG"
                   alt="General Aviation Training"
                   fill
                   className="object-cover"
@@ -60,7 +60,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="/images/career-pilots.jpg"
+                  src="/images/career-pilots.JPG"
                   alt="Career Pilot Training"
                   fill
                   className="object-cover"
