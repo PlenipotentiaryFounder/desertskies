@@ -4,7 +4,21 @@ const resendApiKey = process.env.RESEND_API_KEY!;
 export const resend = new Resend(resendApiKey);
 const domain = process.env.DOMAIN || 'desertskiesaviationaz.com';
 
-export async function sendDiscoveryFlightEmail({ name, email, phone, date, time, notes = '' }) {
+export async function sendDiscoveryFlightEmail({ 
+  name,
+  email,
+  phone,
+  date,
+  time,
+  notes = ''
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  notes?: string;
+}) {
   const adminEmail = process.env.ADMIN_EMAIL!;
   const schoolName = process.env.SCHOOL_NAME || 'Desert Skies Aviation';
   const fromEmail = `Desert Skies Aviation <noreply@${domain}>`;
@@ -55,7 +69,19 @@ export async function sendDiscoveryFlightEmail({ name, email, phone, date, time,
   }
 }
 
-export async function sendContactEmail({ name, email, phone = '', interest, message }) {
+export async function sendContactEmail({ 
+  name,
+  email,
+  phone = '',
+  interest,
+  message
+}: {
+  name: string;
+  email: string;
+  phone?: string;
+  interest: string;
+  message: string;
+}) {
   const adminEmail = process.env.ADMIN_EMAIL!;
   const schoolName = process.env.SCHOOL_NAME || 'Desert Skies Aviation';
   const fromEmail = `Desert Skies Aviation <noreply@${domain}>`;
