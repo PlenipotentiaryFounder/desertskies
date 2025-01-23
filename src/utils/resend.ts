@@ -86,6 +86,13 @@ export async function sendContactEmail({
   const schoolName = process.env.SCHOOL_NAME || 'Desert Skies Aviation';
   const fromEmail = `Desert Skies Aviation <noreply@${domain}>`;
 
+  console.log('Attempting to send contact emails with:', {
+    adminEmail,
+    domain,
+    fromEmail,
+    userEmail: email
+  });
+
   try {
     // Send confirmation email to user
     const userEmail = await resend.emails.send({
@@ -102,14 +109,16 @@ export async function sendContactEmail({
       `
     });
 
-    // Send notification to admin
+    console.log('User confirmation email sent:', userEmail);
+
+    // Send notification email to admin
     const adminNotification = await resend.emails.send({
       from: fromEmail,
       to: adminEmail,
-      subject: `New Contact Form Submission - ${interest}`,
+      subject: 'New Contact Form Submission',
       html: `
         <h1>New Contact Form Submission</h1>
-        <h2>Contact Details:</h2>
+        <h2>Customer Details:</h2>
         <ul>
           <li>Name: ${name}</li>
           <li>Email: ${email}</li>
@@ -121,12 +130,14 @@ export async function sendContactEmail({
       `
     });
 
-    console.log('Admin email sent:', adminNotification);
-    console.log('User email sent:', userEmail);
-
+    console.log('Admin notification email sent:', adminNotification);
     return { userEmail, adminNotification };
   } catch (error) {
-    console.error('Error sending emails:', error);
+    console.error('Error sending contact emails:', error);
+    console.error('Error details:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined
+    });
     throw error;
   }
 } 
