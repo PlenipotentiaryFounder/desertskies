@@ -81,7 +81,7 @@ export const getMetadata = (
           url,
           width: 1200,
           height: 630,
-          alt: title || defaultMetadata.title?.default,
+          alt: title || (typeof defaultMetadata.title === 'object' ? defaultMetadata.title.default : defaultMetadata.title),
         })),
       },
       twitter: {
