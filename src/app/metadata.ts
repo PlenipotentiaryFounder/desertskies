@@ -70,7 +70,7 @@ export const getMetadata = (
   description?: string,
   images?: string[]
 ): Metadata => {
-  const defaultTitle = typeof defaultMetadata.title === 'object' 
+  const defaultTitle = defaultMetadata.title && typeof defaultMetadata.title === 'object' 
     ? defaultMetadata.title.default 
     : 'Desert Skies Aviation | Flight Training in Arizona';
 
