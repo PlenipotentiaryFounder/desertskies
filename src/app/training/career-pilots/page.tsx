@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,40 +10,136 @@ const careerPath = [
     duration: '4-6 months',
     hours: '40-60 hours',
     description: 'Master the fundamentals of flight and earn your initial pilot certification.',
+    costs: {
+      aircraft: '$180-200/hr',
+      instructor: '$75/hr',
+      ground: '$65/hr',
+      total: '$12,000-15,000',
+      details: [
+        'Aircraft rental with fuel',
+        'One-on-one instruction',
+        'Ground school and materials',
+        'Written test and checkride fees'
+      ]
+    }
   },
   {
     stage: 'Instrument Rating (IR)',
     duration: '3-4 months',
     hours: '40-50 hours',
     description: 'Learn to fly safely in various weather conditions using only instrument references.',
+    costs: {
+      aircraft: '$180-200/hr',
+      instructor: '$75/hr',
+      ground: '$65/hr',
+      total: '$10,000-12,000',
+      details: [
+        'Aircraft rental with fuel',
+        'Instrument instruction',
+        'Simulator sessions',
+        'Test preparation and fees'
+      ]
+    }
   },
   {
     stage: 'Commercial Pilot License (CPL)',
     duration: '4-6 months',
     hours: '190-250 hours',
     description: 'Develop advanced flying skills and learn to operate aircraft for compensation.',
+    costs: {
+      aircraft: '$180-200/hr',
+      instructor: '$75/hr',
+      ground: '$65/hr',
+      total: '$25,000-30,000',
+      details: [
+        'Complex aircraft rental',
+        'Commercial maneuvers training',
+        'Cross-country flights',
+        'Certification fees'
+      ]
+    }
   },
   {
     stage: 'Multi-Engine Rating',
     duration: '2-3 weeks',
     hours: '10-15 hours',
     description: 'Gain certification to fly multi-engine aircraft, expanding your career opportunities.',
+    costs: {
+      aircraft: '$350-400/hr',
+      instructor: '$85/hr',
+      ground: '$65/hr',
+      total: '$6,000-8,000',
+      details: [
+        'Multi-engine aircraft rental',
+        'Specialized instruction',
+        'Systems training',
+        'Checkride fees'
+      ]
+    }
   },
   {
     stage: 'Flight Instructor (CFI)',
     duration: '2-3 months',
     hours: '25-35 hours',
     description: 'Learn to teach others while building hours towards airline minimums.',
+    costs: {
+      aircraft: '$180-200/hr',
+      instructor: '$85/hr',
+      ground: '$65/hr',
+      total: '$8,000-10,000',
+      details: [
+        'Aircraft rental for teaching practice',
+        'Advanced instruction techniques',
+        'Teaching materials',
+        'Multiple certification fees'
+      ]
+    }
   },
   {
     stage: 'Airline Transport Pilot (ATP)',
     duration: 'Varies',
     hours: '1,500 hours',
     description: 'Achieve the highest level of pilot certification and qualify for airline positions.',
+    costs: {
+      program: '$5,000-7,000',
+      details: [
+        'ATP certification program',
+        'Type rating (if required)',
+        'Final certification fees'
+      ]
+    }
   },
 ];
 
 export default function CareerPilots() {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    // Initialize Intersection Observer
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: '-50px', // Slight offset to trigger before fully in view
+      }
+    );
+
+    // Observe all timeline items
+    document.querySelectorAll('.timeline-item').forEach((item) => {
+      observerRef.current?.observe(item);
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, []);
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -74,13 +173,19 @@ export default function CareerPilots() {
             </p>
           </div>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-200" />
+            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-sky-600/0 via-sky-600 to-sky-600/0" />
             <div className="space-y-12">
               {careerPath.map((step, index) => (
-                <div key={step.stage} className={`relative ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className="flex items-center">
+                <div 
+                  key={step.stage} 
+                  className={`timeline-item relative opacity-0 transition-all duration-700 ease-out
+                    ${index % 2 === 0 ? 'md:flex-row translate-x-[-100px]' : 'md:flex-row-reverse translate-x-[100px]'}
+                    [&.animate-in]:translate-x-0 [&.animate-in]:opacity-100`}
+                >
+                  <div className="flex items-start">
                     <div className={`flex md:w-1/2 ${index % 2 === 0 ? 'md:justify-end md:pr-8' : 'md:justify-start md:pl-8'}`}>
-                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-md">
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-md w-full
+                        transition-all duration-500 hover:shadow-lg hover:border-sky-100 hover:-translate-y-1">
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="text-lg font-bold text-gray-900">{step.stage}</h3>
                           <span className="px-3 py-1 text-sm text-sky-600 bg-sky-50 rounded-full">
@@ -92,7 +197,53 @@ export default function CareerPilots() {
                       </div>
                     </div>
                     <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full border-4 border-sky-600 bg-white" />
+                      <div className="w-8 h-8 rounded-full border-4 border-sky-600 bg-white
+                        transition-transform duration-500 hover:scale-125 hover:border-sky-400" />
+                    </div>
+                    <div className={`flex md:w-1/2 ${index % 2 === 0 ? 'md:justify-start md:pl-8' : 'md:justify-end md:pr-8'}`}>
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-md w-full
+                        transition-all duration-500 hover:shadow-lg hover:border-sky-100 hover:-translate-y-1">
+                        <div className="flex flex-col h-full">
+                          <h3 className="text-lg font-bold text-gray-900 mb-4">Estimated Costs</h3>
+                          
+                          {step.costs.aircraft ? (
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+                              <div className="text-gray-600">Aircraft Rental:</div>
+                              <div className="text-gray-900 font-medium text-right">{step.costs.aircraft}</div>
+                              <div className="text-gray-600">Instructor Time:</div>
+                              <div className="text-gray-900 font-medium text-right">{step.costs.instructor}</div>
+                              <div className="text-gray-600">Ground Training:</div>
+                              <div className="text-gray-900 font-medium text-right">{step.costs.ground}</div>
+                            </div>
+                          ) : (
+                            <div className="mb-4" />
+                          )}
+
+                          <div className="mt-auto">
+                            <div className="border-t pt-4">
+                              <div className="flex justify-between items-center mb-3">
+                                <span className="text-gray-600 font-medium">Total Investment:</span>
+                                <span className="text-lg font-bold text-sky-600">
+                                  {step.costs.total || step.costs.program}
+                                </span>
+                              </div>
+                              <div className="bg-gray-50 rounded-lg p-3">
+                                <h4 className="text-sm font-semibold text-gray-900 mb-2">Includes:</h4>
+                                <ul className="text-sm text-gray-600 space-y-1.5">
+                                  {step.costs.details.map((detail, i) => (
+                                    <li key={i} className="flex items-start">
+                                      <svg className="w-4 h-4 text-sky-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                      </svg>
+                                      <span>{detail}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

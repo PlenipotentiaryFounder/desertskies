@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navigation = [
@@ -20,15 +21,55 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 100) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header 
+      className={`fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100 transition-all duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-4" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1 p-0">
             <span className="sr-only">Desert Skies Aviation</span>
-            <h1 className="text-2xl font-bold text-sky-600">Desert Skies</h1>
+            <div className="relative w-[450px] h-20">
+              <Image
+                src="/images/logo.png"
+                alt="Desert Skies Aviation"
+                fill
+                className="object-contain"
+                style={{ objectFit: 'contain', objectPosition: 'left center' }}
+                priority
+              />
+            </div>
           </Link>
         </div>
         
@@ -84,7 +125,7 @@ export default function Navbar() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/contact"
+            href="/discovery-flight"
             className="rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition duration-150"
           >
             Book Discovery Flight
@@ -98,9 +139,18 @@ export default function Navbar() {
           <div className="fixed inset-0 z-50">
             <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
+                <Link href="/" className="-m-1 p-0">
                   <span className="sr-only">Desert Skies Aviation</span>
-                  <h1 className="text-2xl font-bold text-sky-600">Desert Skies</h1>
+                  <div className="relative w-[450px] h-20">
+                    <Image
+                      src="/images/logo.png"
+                      alt="Desert Skies Aviation"
+                      fill
+                      className="object-contain"
+                      style={{ objectFit: 'contain', objectPosition: 'left center' }}
+                      priority
+                    />
+                  </div>
                 </Link>
                 <button
                   type="button"
@@ -144,7 +194,7 @@ export default function Navbar() {
                   </div>
                   <div className="py-6">
                     <Link
-                      href="/contact"
+                      href="/discovery-flight"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white bg-sky-600 text-center hover:bg-sky-500"
                       onClick={() => setMobileMenuOpen(false)}
                     >

@@ -20,10 +20,11 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px]">
               <Image
-                src="/images/founder.jpg"
+                src="/FlightPhotos/founder-1.JPG"
                 alt="Thomas Ferrier"
                 fill
                 className="object-cover rounded-2xl"
+                priority
               />
             </div>
             <div>

@@ -95,7 +95,7 @@ export default function Hero() {
               Start Flying Today
             </Link>
             <Link
-              href="/contact"
+              href="/discovery-flight"
               className="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-lg backdrop-blur-sm transition duration-300"
             >
               Book Discovery Flight

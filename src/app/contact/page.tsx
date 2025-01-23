@@ -11,6 +11,11 @@ const locations = [
   { id: 'KDVT', name: 'Phoenix Deer Valley Airport', address: '702 W Deer Valley Rd, Phoenix, AZ 85027' },
 ];
 
+type FormStatus = {
+  type: 'success' | 'error' | null;
+  message: string;
+};
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,10 +25,48 @@ export default function Contact() {
     interest: 'general',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<FormStatus>({ type: null, message: '' });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setFormStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setFormStatus({
+        type: 'success',
+        message: 'Message sent successfully! We will get back to you shortly.',
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        interest: 'general',
+      });
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Failed to send message',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -54,6 +97,17 @@ export default function Contact() {
             <div className="bg-white p-8 rounded-2xl shadow-xl">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {formStatus.type && (
+                  <div
+                    className={`p-4 rounded-md ${
+                      formStatus.type === 'success'
+                        ? 'bg-green-50 text-green-800'
+                        : 'bg-red-50 text-red-800'
+                    }`}
+                  >
+                    {formStatus.message}
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                     Name
@@ -128,9 +182,12 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-sky-600 text-white py-3 px-4 rounded-md hover:bg-sky-700 transition duration-150"
+                  disabled={isSubmitting}
+                  className={`w-full bg-sky-600 text-white py-3 px-4 rounded-md hover:bg-sky-700 transition duration-150 ${
+                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
