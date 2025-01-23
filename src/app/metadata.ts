@@ -81,7 +81,7 @@ export const getMetadata = (
           url,
           width: 1200,
           height: 630,
-          alt: title || (typeof defaultMetadata.title === 'object' ? defaultMetadata.title.default : defaultMetadata.title),
+          alt: title || (defaultMetadata.title && typeof defaultMetadata.title === 'object' ? defaultMetadata.title.default : defaultMetadata.title) || 'Desert Skies Aviation',
         })),
       },
       twitter: {
