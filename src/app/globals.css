@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile optimizations */
+html {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* Prevent text from being too small on mobile */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+  
+  /* Improve tap targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Add padding to prevent content from being hidden under fixed header */
+  main {
+    padding-top: 3.5rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Improve form elements on mobile */
+input, select, textarea {
+  font-size: 16px !important; /* Prevents zoom on focus in iOS */
+}
+
+/* Better touch feedback */
+@media (hover: none) {
+  a:active, button:active {
+    opacity: 0.7;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
