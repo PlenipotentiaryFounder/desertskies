@@ -8,7 +8,7 @@ export default function AboutPage() {
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="lg:max-w-lg">
-                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Thomas Ferrier</h1>
+                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why I Started Desert Skies Aviation</h1>
                 <p className="mt-6 text-xl leading-8 text-gray-700">
                   From mortgage industry professional to passionate flight instructor, my journey to aviation is a testament that it's never too late to pursue your dreams.
                 </p>
@@ -28,24 +28,17 @@ export default function AboutPage() {
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-                <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">My Story</h2>
                 <p className="mt-6">
-                  I grew up about four miles northeast of the departure end of 04R at Falcon Field in Mesa, where the sound of planes climbing into the sky was a constant backdrop to my childhood. I spent countless days staring up at them, imagining what it would feel like to be at the controls. That dream stayed with me, but for years, it felt out of reach. Life took me into the mortgage industry—a career that paid the bills but never lit a fire in me. Every day felt the same, and deep down, I knew I wanted more. Then I discovered flying, and everything changed.
+                  I grew up just four miles northeast of the departure end of 04R at Falcon Field in Mesa, where the sound of planes overhead fueled a lifelong dream. For years, flying felt out of reach. Instead, I built a career in the mortgage industry—a path that paid the bills but never inspired me. Everything changed when I discovered flying. The moment I took off, I knew I'd found my purpose.
                 </p>
                 <p className="mt-6">
-                  The first time I took off, I knew I'd found what I was meant to do. Flying isn't just about getting from point A to B—it's a thrilling combination of challenge, freedom, and purpose. I started Desert Skies Aviation to share that passion with others and to help people like you turn your own dreams of flying into reality.
+                  I started Desert Skies Aviation to share that experience with others. No two pilots are the same—some of you are chasing a career in the airlines, others are here for the joy of flying. That's why I customize every lesson to match your goals and challenges, whether you're just starting out or balancing a second career. At Desert Skies, it's all about helping you reach your fullest potential.
                 </p>
                 <p className="mt-6">
-                  What sets Desert Skies apart is simple: I know that no two pilots are the same. Some of you are here to launch a career in the airlines, while others are chasing the pure joy of flying on weekends. Maybe you're a first-time pilot, or maybe you're switching careers like I did, balancing family or other commitments. That's why I don't believe in cookie-cutter training. At Desert Skies, every lesson is designed around you—your goals, your challenges, and your unique journey.
+                  As a Certified Flight Instructor with experience in the American Airlines Cadet Academy, I know what it takes to succeed in this demanding field. My journey taught me how to overcome obstacles and adapt to every challenge. Now, I'm here to guide you—whether your goal is weekend flights or a lifelong career in aviation.
                 </p>
                 <p className="mt-6">
-                  I bring more to the table than just my certifications. I've been in your shoes, wondering if this dream was even possible. My training through the American Airlines Cadet Academy was a fast-paced, highly demanding path, and it taught me not only how to master flying but how to adapt to every hurdle along the way. As a Certified Flight Instructor, I combine that experience with a deep understanding of what it takes to succeed, whether you're here to build hours for the airlines or simply experience the joy of flight.
-                </p>
-                <p className="mt-6">
-                  Every time I take off over the desert, I'm reminded of why I started this journey: to help pilots of all walks of life unlock their potential. So, whether you're here to explore the skies for fun or take the first steps toward a career, you'll find a personalized approach, an unwavering commitment to your success, and an instructor who's just as invested in your dream as you are.
-                </p>
-                <p className="mt-6 font-semibold">
-                  Ready to take off? Let's get started. Your journey begins here.
+                  Every time I fly over the desert, I'm reminded of how lucky I am to live this dream. If you've ever felt that same pull toward the skies, let's make it happen together. Your journey starts here.
                 </p>
               </div>
             </div>
