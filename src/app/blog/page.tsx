@@ -3,11 +3,10 @@ import Link from 'next/link';
 import { getMetadata } from '../metadata';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
-export const metadata = getMetadata(
-  'Aviation Blog & Resources',
-  'Stay updated with the latest insights, tips, and stories from the world of aviation.',
-  ['/images/blog/featured-post.jpg']
-);
+export const metadata = getMetadata({
+  title: 'Aviation Blog & Resources',
+  description: 'Stay updated with the latest insights, tips, and stories from the world of aviation.'
+});
 
 const featuredPost = {
   title: 'The Journey to Becoming a Professional Pilot',
