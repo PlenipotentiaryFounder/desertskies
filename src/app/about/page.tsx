@@ -1,150 +1,62 @@
 import Image from 'next/image';
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-sky-600">
-        <div className="absolute inset-0 bg-gradient-to-r from-sky-800 to-sky-600 opacity-90" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-montserrat">Our Story</h1>
-          <p className="text-xl text-sky-100 max-w-3xl mx-auto">
-            Building dreams and shaping the future of aviation through excellence in training.
-          </p>
-        </div>
-      </section>
-
-      {/* Meet Thomas Ferrier */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px]">
-              <Image
-                src="/FlightPhotos/founder-1.JPG"
-                alt="Thomas Ferrier"
-                fill
-                className="object-cover rounded-2xl"
-                priority
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-montserrat">
-                Meet Thomas Ferrier
-              </h2>
-              <div className="space-y-6 text-gray-600">
-                <p>
-                  With over two decades of aviation experience, Thomas Ferrier founded Desert Skies Aviation with a vision to transform flight training in Arizona. His journey from a passionate private pilot to a seasoned flight instructor has shaped our unique approach to aviation education.
-                </p>
-                <p>
-                  Thomas's commitment to safety, excellence, and personalized instruction has helped countless students achieve their aviation dreams, whether pursuing recreational flying or professional careers.
-                </p>
-                <p>
-                  His innovative teaching methods and deep understanding of both general aviation and commercial operations have made Desert Skies Aviation a leading flight school in the Southwest.
+    <main className="flex-1">
+      <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="lg:max-w-lg">
+                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Thomas Ferrier</h1>
+                <p className="mt-6 text-xl leading-8 text-gray-700">
+                  From mortgage industry professional to passionate flight instructor, my journey to aviation is a testament that it's never too late to pursue your dreams.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Mission and Vision */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-montserrat">
-              Mission and Vision
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our mission is to provide exceptional flight training that empowers individuals to achieve their aviation goals safely and efficiently.
-            </p>
+          <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+            <Image
+              className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              src="/FlightPhotos/founder2.JPG"
+              alt="Thomas Ferrier"
+              width={1432}
+              height={1442}
+              priority
+            />
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="text-sky-600 mb-4">
-                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+                <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">My Story</h2>
+                <p className="mt-6">
+                  I grew up about four miles northeast of the departure end of 04R at Falcon Field in Mesa, where the sound of planes climbing into the sky was a constant backdrop to my childhood. I spent countless days staring up at them, imagining what it would feel like to be at the controls. That dream stayed with me, but for years, it felt out of reach. Life took me into the mortgage industry—a career that paid the bills but never lit a fire in me. Every day felt the same, and deep down, I knew I wanted more. Then I discovered flying, and everything changed.
+                </p>
+                <p className="mt-6">
+                  The first time I took off, I knew I'd found what I was meant to do. Flying isn't just about getting from point A to B—it's a thrilling combination of challenge, freedom, and purpose. I started Desert Skies Aviation to share that passion with others and to help people like you turn your own dreams of flying into reality.
+                </p>
+                <p className="mt-6">
+                  What sets Desert Skies apart is simple: I know that no two pilots are the same. Some of you are here to launch a career in the airlines, while others are chasing the pure joy of flying on weekends. Maybe you're a first-time pilot, or maybe you're switching careers like I did, balancing family or other commitments. That's why I don't believe in cookie-cutter training. At Desert Skies, every lesson is designed around you—your goals, your challenges, and your unique journey.
+                </p>
+                <p className="mt-6">
+                  I bring more to the table than just my certifications. I've been in your shoes, wondering if this dream was even possible. My training through the American Airlines Cadet Academy was a fast-paced, highly demanding path, and it taught me not only how to master flying but how to adapt to every hurdle along the way. As a Certified Flight Instructor, I combine that experience with a deep understanding of what it takes to succeed, whether you're here to build hours for the airlines or simply experience the joy of flight.
+                </p>
+                <p className="mt-6">
+                  Every time I take off over the desert, I'm reminded of why I started this journey: to help pilots of all walks of life unlock their potential. So, whether you're here to explore the skies for fun or take the first steps toward a career, you'll find a personalized approach, an unwavering commitment to your success, and an instructor who's just as invested in your dream as you are.
+                </p>
+                <p className="mt-6 font-semibold">
+                  Ready to take off? Let's get started. Your journey begins here.
+                </p>
+                <div className="mt-16 text-sm text-gray-500">
+                  <p className="italic">
+                    Disclaimer: Desert Skies Aviation provides flight instruction services under FAR Part 61. Thomas Ferrier operates as an independent Certified Flight Instructor (CFI) and does not hold an Air Carrier or Operating Certificate. Flight instruction is provided using aircraft rented from FAA-certified facilities or student-provided aircraft that meet all applicable regulations.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Excellence</h3>
-              <p className="text-gray-600">
-                We maintain the highest standards in training, safety, and aircraft maintenance to ensure our students receive the best possible education.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="text-sky-600 mb-4">
-                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Community</h3>
-              <p className="text-gray-600">
-                We foster a supportive environment where students can learn, grow, and connect with fellow aviation enthusiasts.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="text-sky-600 mb-4">
-                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Safety</h3>
-              <p className="text-gray-600">
-                Safety is our top priority, integrated into every aspect of our training programs and operations.
-              </p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Building a Community */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-montserrat">
-              Building a Community
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              At Desert Skies Aviation, we're more than just a flight school - we're a community of passionate aviators.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Student Support Network</h3>
-              <p className="text-gray-600">
-                Our students benefit from a strong support network of instructors, fellow students, and industry professionals. Regular events, workshops, and social gatherings create opportunities for learning and networking.
-              </p>
-              <ul className="space-y-4 text-gray-600">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-sky-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Monthly safety seminars and workshops
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-sky-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Student mentorship programs
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-sky-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Industry networking events
-                </li>
-              </ul>
-            </div>
-            <div className="relative h-[400px]">
-              <Image
-                src="/images/community.jpg"
-                alt="Desert Skies Aviation Community"
-                fill
-                className="object-cover rounded-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 } 
