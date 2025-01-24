@@ -24,9 +24,6 @@ export default function AboutPage() {
               height={1200}
               priority
               quality={100}
-              onError={(e) => {
-                console.error('Error loading image:', e);
-              }}
             />
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
