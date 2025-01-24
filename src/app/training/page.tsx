@@ -4,176 +4,62 @@ import Image from 'next/image';
 
 export default function TrainingPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section with Split Design */}
-      <section className="relative h-[90vh] flex">
-        {/* Left Side - General Aviation */}
-        <div className="relative w-1/2 group cursor-pointer overflow-hidden">
-          <Link href="/training/general-aviation" className="block h-full">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-10 
-              transition-opacity duration-500 group-hover:opacity-75" />
-            <Image
-              src="/images/general-aviation.JPG"
-              alt="General Aviation Training"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-            />
-            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center p-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                General Aviation
-              </h2>
-              <p className="text-xl text-white/90 mb-6 max-w-lg">
-                Perfect for recreational flying, business travel, or pursuing aviation as a hobby.
-                Start your journey with private pilot training.
-              </p>
-              <span className="inline-flex items-center px-6 py-3 border-2 border-white text-lg 
-                font-medium rounded-md text-white hover:bg-white/10 transition-all duration-300">
-                Explore General Aviation
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Right Side - Career Pilots */}
-        <div className="relative w-1/2 group cursor-pointer overflow-hidden">
-          <Link href="/training/career-pilots" className="block h-full">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-10 
-              transition-opacity duration-500 group-hover:opacity-75" />
-            <Image
-              src="/images/career-pilots.JPG"
-              alt="Career Pilot Training"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-            />
-            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center p-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Career Pilots
-              </h2>
-              <p className="text-xl text-white/90 mb-6 max-w-lg">
-                Structured program designed to take you from zero experience to airline-ready.
-                Your path to becoming a professional pilot starts here.
-              </p>
-              <span className="inline-flex items-center px-6 py-3 border-2 border-white text-lg 
-                font-medium rounded-md text-white hover:bg-white/10 transition-all duration-300">
-                Explore Career Path
-              </span>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Choose Your Path
-          </h2>
+    <main className="flex-1">
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Flight Training Programs</h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              As a Certified Flight Instructor (CFI), I offer personalized one-on-one flight instruction to help you achieve your aviation goals. Whether you're pursuing flying as a hobby or planning a career in aviation, I'll work with you to create a training program that fits your schedule and learning style.
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* General Aviation Path */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                General Aviation Path
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+            <div className="p-8 sm:p-10 lg:flex-auto">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900">Training Options</h3>
+              <p className="mt-6 text-base leading-7 text-gray-600">
+                I provide comprehensive flight instruction under FAR Part 61, offering flexibility in scheduling and personalized attention to help you progress efficiently through your training.
+              </p>
+              <div className="mt-10 flex items-center gap-x-4">
+                <h4 className="flex-none text-sm font-semibold leading-6 text-sky-600">What's included</h4>
+                <div className="h-px flex-auto bg-gray-100"></div>
+              </div>
+              <ul role="list" className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none text-sky-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                   </svg>
-                  <span className="ml-3">Flexible training schedule</span>
+                  One-on-one instruction
                 </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none text-sky-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                   </svg>
-                  <span className="ml-3">Train at your own pace</span>
+                  Flexible scheduling
                 </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none text-sky-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                   </svg>
-                  <span className="ml-3">Perfect for recreational flying</span>
+                  Ground instruction
                 </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none text-sky-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                   </svg>
-                  <span className="ml-3">Ideal for business travel capabilities</span>
-                </li>
-              </ul>
-              <Link 
-                href="/training/general-aviation"
-                className="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base 
-                  font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300"
-              >
-                Learn More
-              </Link>
-            </div>
-
-            {/* Career Path */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Career Pilot Path
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3">Structured career program</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3">Airline partnerships</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3">Fast track to airline career</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-6 w-6 text-sky-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3">Professional mentorship</span>
+                  Test preparation
                 </li>
               </ul>
-              <Link 
-                href="/training/career-pilots"
-                className="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base 
-                  font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300"
-              >
-                Learn More
-              </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="bg-sky-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Not Sure Which Path to Choose?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Schedule a discovery flight with one of our experienced instructors to learn more about both paths
-            and find the perfect fit for your aviation goals.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 border-2 border-white text-lg 
-              font-medium rounded-md text-white hover:bg-white hover:text-sky-900 transition-all duration-300"
-          >
-            Book Discovery Flight
-          </Link>
+          <div className="mt-16 text-sm text-gray-500">
+            <p className="italic">
+              Disclaimer: Flight instruction is provided under FAR Part 61. As an independent Certified Flight Instructor (CFI), I do not hold an Air Carrier or Operating Certificate. Training is conducted using aircraft rented from FAA-certified facilities or student-provided aircraft that meet all applicable regulations.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 } 

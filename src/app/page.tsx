@@ -3,210 +3,129 @@ import Hero from '@/components/sections/Hero';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      <Hero />
-
-      {/* Welcome Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-montserrat">
-              Welcome to Desert Skies Aviation
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              At Desert Skies Aviation, we turn aviation dreams into reality. Our experienced instructors and modern fleet provide the perfect environment for your flight training journey.
-            </p>
-          </div>
+    <main className="flex-1">
+      {/* Hero Section */}
+      <section className="relative h-[90vh] flex items-center justify-center">
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            poster="/images/hero-poster.jpg"
+          >
+            <source src="/videos/sedonaVideo.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-      </section>
-
-      {/* Choose Your Path */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-16 font-montserrat">
-            Choose Your Path
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* General Aviation Card */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="relative h-64">
-                <Image
-                  src="/images/general-aviation.JPG"
-                  alt="General Aviation Training"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">General Aviation</h3>
-                <p className="text-gray-600 mb-6">
-                  Experience the freedom of recreational flying with our flexible training programs designed for aviation enthusiasts.
-                </p>
-                <Link
-                  href="/training/general-aviation"
-                  className="inline-flex items-center text-sky-600 hover:text-sky-700"
-                >
-                  Learn more
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Career Pilots Card */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="relative h-64">
-                <Image
-                  src="/images/career-pilots.JPG"
-                  alt="Career Pilot Training"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Career Pilots</h3>
-                <p className="text-gray-600 mb-6">
-                  Launch your professional aviation career with our structured training programs and industry partnerships.
-                </p>
-                <Link
-                  href="/training/career-pilots"
-                  className="inline-flex items-center text-sky-600 hover:text-sky-700"
-                >
-                  Learn more
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-16 font-montserrat">
-            Success Stories
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl">
-                <div className="flex items-center mb-6">
-                  <div className="relative h-16 w-16 rounded-full overflow-hidden">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                    <p className="text-gray-600">{testimonial.title}</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">{testimonial.quote}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Services */}
-      <section className="py-24 bg-sky-600 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8 font-montserrat">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-lg mb-12 text-sky-100">
-            Take the first step towards your aviation dreams with a Discovery Flight.
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            Begin Your Aviation Journey
+          </h1>
+          <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto">
+            Personalized flight instruction in Arizona with Thomas Ferrier, Certified Flight Instructor (CFI). 
+            Experience the thrill of flying with one-on-one training tailored to your goals.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-sky-600 transition duration-150"
+            className="inline-flex items-center px-8 py-4 border-2 border-white text-lg 
+              font-medium rounded-md text-white hover:bg-white hover:text-sky-900 
+              transition-all duration-300"
           >
-            Book Your Flight Today
+            Book Discovery Flight
           </Link>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 font-montserrat">
-                Get in Touch
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Have questions about our training programs? Our team is here to help you navigate your aviation journey.
-              </p>
-              <div className="space-y-4">
-                <p className="flex items-center text-gray-600">
-                  <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  (480) 555-0123
-                </p>
-                <p className="flex items-center text-gray-600">
-                  <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  info@desertskiesaviation.com
-                </p>
+      {/* Features Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              Why Choose Desert Skies Aviation?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Feature 1 */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-sky-100 text-sky-600 mb-6">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Personalized Instruction
+              </h3>
+              <p className="text-gray-600">
+                One-on-one training tailored to your learning style and schedule. Progress at your own pace with focused attention from your instructor.
+              </p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-xl">
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows={4}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-sky-600 text-white py-3 px-4 rounded-md hover:bg-sky-700 transition duration-150"
-                >
-                  Send Message
-                </button>
-              </form>
+            {/* Feature 2 */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-sky-100 text-sky-600 mb-6">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Experienced Instruction
+              </h3>
+              <p className="text-gray-600">
+                Learn from an experienced CFI who prioritizes safety and provides comprehensive ground and flight instruction.
+              </p>
+            </div>
+            {/* Feature 3 */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-sky-100 text-sky-600 mb-6">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Flexible Training
+              </h3>
+              <p className="text-gray-600">
+                Training conducted under FAR Part 61 allows for a flexible approach that adapts to your goals and availability.
+              </p>
             </div>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* CTA Section */}
+      <section className="bg-sky-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            Ready to Start Flying?
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Book a discovery flight to experience the thrill of flying and learn more about the training process.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 border-2 border-white text-lg 
+              font-medium rounded-md text-white hover:bg-white hover:text-sky-900 
+              transition-all duration-300"
+          >
+            Contact Me
+          </Link>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-sm text-gray-600 text-center italic">
+            Disclaimer: Flight instruction is provided under FAR Part 61. As an independent Certified Flight Instructor (CFI), 
+            I do not hold an Air Carrier or Operating Certificate. Training is conducted using aircraft rented from FAA-certified 
+            facilities or student-provided aircraft that meet all applicable regulations.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }
 

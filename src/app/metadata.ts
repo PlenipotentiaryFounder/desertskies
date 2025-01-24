@@ -1,38 +1,48 @@
 import { Metadata } from 'next';
 
-const siteTitle = 'Desert Skies Aviation | Flight Training in Arizona';
-const siteDescription = 'Premier flight training school in Arizona offering personalized programs for recreational and career pilots. Start your aviation journey with Desert Skies Aviation.';
+const siteTitle = "Desert Skies Aviation | Flight Instruction in Arizona";
+const siteDescription = "Personalized flight instruction in Arizona with Thomas Ferrier, Certified Flight Instructor (CFI). Offering discovery flights and comprehensive pilot training under FAR Part 61.";
 
-const defaultMetadata: Metadata = {
-  metadataBase: new URL('https://desertskiesaviationaz.com'),
-  title: {
-    default: siteTitle,
-    template: '%s | Desert Skies Aviation',
-  },
+const defaultMetadata = {
+  title: siteTitle,
   description: siteDescription,
+  keywords: [
+    'flight instruction',
+    'certified flight instructor',
+    'pilot training',
+    'discovery flight',
+    'learn to fly',
+    'CFI',
+    'Arizona flight training',
+    'private pilot license',
+    'FAR Part 61'
+  ],
+  authors: [{ name: 'Thomas Ferrier', url: 'https://desertskiesaviationaz.com' }],
+  creator: 'Thomas Ferrier',
+  publisher: 'Desert Skies Aviation',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Desert Skies Aviation',
     title: siteTitle,
     description: siteDescription,
-    images: [{
-      url: '/images/og-image.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'Desert Skies Aviation',
-    }],
+    url: 'https://desertskiesaviationaz.com',
+    siteName: 'Desert Skies Aviation',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: siteTitle,
     description: siteDescription,
     creator: '@desertskiesav',
-    images: ['/images/twitter-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -41,51 +51,25 @@ const defaultMetadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
-export function getMetadata(
-  title?: string,
-  description?: string,
-  images?: string[]
-): Metadata {
+export function getMetadata({ title, description }: { title?: string; description?: string } = {}) {
   return {
     ...defaultMetadata,
-    ...(title && { 
-      title,
-      openGraph: {
-        ...defaultMetadata.openGraph,
-        title,
-      },
-      twitter: {
-        ...defaultMetadata.twitter,
-        title,
-      },
-    }),
-    ...(description && { 
-      description,
-      openGraph: {
-        ...defaultMetadata.openGraph,
-        description,
-      },
-      twitter: {
-        ...defaultMetadata.twitter,
-        description,
-      },
-    }),
-    ...(images && {
-      openGraph: {
-        ...defaultMetadata.openGraph,
-        images: images.map((url) => ({
-          url,
-          width: 1200,
-          height: 630,
-          alt: title || siteTitle,
-        })),
-      },
-      twitter: {
-        ...defaultMetadata.twitter,
-        images,
-      },
-    }),
+    title: title ? `${title} | Desert Skies Aviation` : defaultMetadata.title,
+    description: description || defaultMetadata.description,
+    openGraph: {
+      ...defaultMetadata.openGraph,
+      title: title ? `${title} | Desert Skies Aviation` : defaultMetadata.title,
+      description: description || defaultMetadata.description,
+    },
+    twitter: {
+      ...defaultMetadata.twitter,
+      title: title ? `${title} | Desert Skies Aviation` : defaultMetadata.title,
+      description: description || defaultMetadata.description,
+    },
   };
 } 
