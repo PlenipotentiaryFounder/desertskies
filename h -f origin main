@@ -1,0 +1,5 @@
+[33mcommit e42edfb091c4b653e2a08a19dbd0cf2f032fb2a6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Thomas Ferrier <playmakertom@gmail.com>
+Date:   Fri Jan 24 09:53:09 2025 -0700
+
+    chore: update Next.js to latest version to fix security vulnerabilities
