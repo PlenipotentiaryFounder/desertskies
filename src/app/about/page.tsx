@@ -19,10 +19,14 @@ export default function AboutPage() {
             <Image
               className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
               src="/images/founder3.JPG"
-              alt="Thomas Ferrier"
-              width={1432}
-              height={1442}
+              alt="Thomas Ferrier - Desert Skies Aviation Founder"
+              width={1200}
+              height={1200}
               priority
+              quality={100}
+              onError={(e) => {
+                console.error('Error loading image:', e);
+              }}
             />
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
