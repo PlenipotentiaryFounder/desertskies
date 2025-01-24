@@ -1,21 +1,27 @@
 import { Metadata } from 'next';
 
-const siteTitle = "Desert Skies Aviation | Flight Instruction in Arizona";
-const siteDescription = "Personalized flight instruction in Arizona with Thomas Ferrier, Certified Flight Instructor (CFI). Offering discovery flights and comprehensive pilot training under FAR Part 61.";
+const siteTitle = "Affordable Flight Training in Arizona | Desert Skies Aviation";
+const siteDescription = "Expert flight training in Arizona at competitive rates. Get your pilot's license with personalized instruction from a certified CFI. Offering discovery flights starting at $199. Located in Scottsdale, AZ.";
 
 const defaultMetadata = {
   title: siteTitle,
   description: siteDescription,
   keywords: [
-    'flight instruction',
-    'certified flight instructor',
-    'pilot training',
-    'discovery flight',
-    'learn to fly',
-    'CFI',
-    'Arizona flight training',
-    'private pilot license',
-    'FAR Part 61'
+    'cheap flight training arizona',
+    'affordable flight school arizona',
+    'flight instruction scottsdale',
+    'best flight school phoenix',
+    'pilot training arizona cost',
+    'discovery flight arizona',
+    'learn to fly arizona',
+    'flight instructor scottsdale',
+    'private pilot license cost arizona',
+    'aviation school phoenix',
+    'flight training near me',
+    'CFI arizona',
+    'pilot certification arizona',
+    'flight lessons scottsdale',
+    'aviation training phoenix'
   ],
   authors: [{ name: 'Thomas Ferrier', url: 'https://desertskiesaviationaz.com' }],
   creator: 'Thomas Ferrier',
@@ -52,7 +58,7 @@ const defaultMetadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'qGId2qOd8bmLwA-SCLA_JlxrxyCGu4bcDvo',
   },
 };
 

@@ -4,8 +4,45 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HomePage() {
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does flight training cost in Arizona?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flight training costs at Desert Skies Aviation start from $199 for a discovery flight. Private Pilot License (PPL) training typically ranges from $10,000-$15,000, including aircraft rental, instruction, and materials. We offer competitive rates and flexible payment plans."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to get a pilot's license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The time to obtain a Private Pilot License varies based on your dedication and schedule. Most students complete their training in 4-6 months when flying 2-3 times per week. The FAA requires a minimum of 40 flight hours, though the national average is around 60-70 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the requirements to start flight training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To begin flight training, you must be at least 17 years old, able to read, speak, and understand English, and pass a basic medical examination. No prior experience is required to start training."
+        }
+      }
+    ]
+  };
+
   return (
     <main className="flex-1">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      </head>
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center">
         <div className="absolute inset-0">
@@ -23,20 +60,74 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            Begin Your Aviation Journey
+            Affordable Flight Training in Scottsdale, Arizona
           </h1>
           <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto">
-            Personalized flight instruction in Arizona with Thomas Ferrier, Certified Flight Instructor (CFI). 
-            Experience the thrill of flying with one-on-one training tailored to your goals.
+            Start your aviation journey with Arizona's most affordable flight training program. 
+            Discovery flights from $199, competitive hourly rates, and flexible scheduling. 
+            Located at Scottsdale Airport (KSDL).
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 border-2 border-white text-lg 
-              font-medium rounded-md text-white hover:bg-white hover:text-sky-900 
-              transition-all duration-300"
-          >
-            Book Discovery Flight
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/discovery-flight"
+              className="inline-flex items-center px-8 py-4 border-2 border-white text-lg 
+                font-medium rounded-md text-white hover:bg-white hover:text-sky-900 
+                transition-all duration-300"
+            >
+              Book $199 Discovery Flight
+            </Link>
+            <Link
+              href="/training"
+              className="inline-flex items-center px-8 py-4 bg-white text-lg 
+                font-medium rounded-md text-sky-900 hover:bg-sky-50 
+                transition-all duration-300"
+            >
+              View Training Programs
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Local SEO Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Premier Flight School in Scottsdale, Arizona
+            </h2>
+            <p className="text-xl text-gray-600">
+              Serving Phoenix, Scottsdale, Mesa, Tempe, and surrounding areas
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Affordable Training</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>✓ Competitive hourly rates</li>
+                <li>✓ Block time discounts</li>
+                <li>✓ Flexible payment plans</li>
+                <li>✓ No hidden fees</li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Expert Instruction</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>✓ FAA Certified Instructors</li>
+                <li>✓ Personalized training plans</li>
+                <li>✓ Modern training aircraft</li>
+                <li>✓ High student success rate</li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Convenient Location</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>✓ Based at Scottsdale Airport</li>
+                <li>✓ Easy access from Phoenix</li>
+                <li>✓ Free parking</li>
+                <li>✓ Modern facilities</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
