@@ -28,6 +28,33 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add autoplay with sound handling
+  useEffect(() => {
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          videoRef.current.muted = false;
+          await videoRef.current.play();
+          setIsMuted(false);
+        } catch (error) {
+          console.error('Error playing video:', error);
+          // If autoplay with sound fails, try with mute
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            setIsMuted(true);
+            try {
+              await videoRef.current.play();
+            } catch (mutedError) {
+              console.error('Error playing muted video:', mutedError);
+            }
+          }
+        }
+      }
+    };
+
+    playVideo();
+  }, []);
+
   const toggleMute = () => {
     if (videoRef.current) {
       const newMutedState = !isMuted;

@@ -71,6 +71,73 @@ const posts = {
       'aviation-career-opportunities',
     ],
   },
+  'cost-of-flight-training-arizona': {
+    title: 'How Much Does Flight Training Cost in Arizona? Complete 2024 Guide',
+    excerpt: 'A detailed breakdown of flight training costs in Arizona, including PPL, instrument rating, and commercial pilot license expenses. Compare prices and find affordable options.',
+    content: `
+      <p>One of the most common questions aspiring pilots ask is about the cost of flight training. In this comprehensive guide, we'll break down all the expenses involved in becoming a pilot in Arizona.</p>
+
+      <h2>Private Pilot License (PPL) Costs</h2>
+      <p>The total cost for obtaining your PPL in Arizona typically ranges from $10,000 to $15,000. This includes:</p>
+      <ul>
+        <li>Flight instruction: $55-75 per hour</li>
+        <li>Aircraft rental: $130-180 per hour</li>
+        <li>Ground school: $500-1000</li>
+        <li>Study materials: $200-400</li>
+        <li>Medical examination: $150-200</li>
+        <li>Written test: $160</li>
+        <li>Checkride: $800</li>
+      </ul>
+
+      <h2>Ways to Reduce Training Costs</h2>
+      <p>Several strategies can help minimize your flight training expenses:</p>
+      <ul>
+        <li>Block pricing discounts</li>
+        <li>Flying frequently to retain knowledge</li>
+        <li>Self-study for ground knowledge</li>
+        <li>Taking advantage of discovery flight specials</li>
+      </ul>
+    `,
+    image: '/images/blog/cost-breakdown.jpg',
+    author: {
+      name: 'Thomas Ferrier',
+      role: 'Chief Flight Instructor',
+      image: '/images/founder.jpg',
+    },
+    date: 'March 20, 2024',
+    readTime: '6 min read',
+  },
+  'best-flight-schools-arizona': {
+    title: 'Top 10 Flight Schools in Arizona: 2024 Comparison Guide',
+    excerpt: 'Compare the best flight schools in Arizona based on pricing, aircraft fleet, instructor experience, and student reviews. Make an informed decision for your pilot training.',
+    content: `
+      <p>Choosing the right flight school is crucial for your success as a pilot. This guide compares the top flight schools in Arizona to help you make an informed decision.</p>
+
+      <h2>What to Look for in a Flight School</h2>
+      <ul>
+        <li>Instructor qualifications and experience</li>
+        <li>Aircraft fleet condition and availability</li>
+        <li>Training costs and payment options</li>
+        <li>Location and facilities</li>
+        <li>Student success rates</li>
+      </ul>
+
+      <h2>Top Flight Schools Comparison</h2>
+      <p>Here's how the leading flight schools in Arizona compare:</p>
+      <ul>
+        <li>Desert Skies Aviation: Personalized instruction, competitive rates</li>
+        <li>Other schools and their unique offerings...</li>
+      </ul>
+    `,
+    image: '/images/blog/flight-schools.jpg',
+    author: {
+      name: 'Thomas Ferrier',
+      role: 'Chief Flight Instructor',
+      image: '/images/founder.jpg',
+    },
+    date: 'March 18, 2024',
+    readTime: '7 min read',
+  },
   // Add more blog posts here
 };
 
@@ -81,8 +148,41 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": `https://desertskiesaviationaz.com${post.image}`,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author.name,
+      "jobTitle": post.author.role,
+      "image": `https://desertskiesaviationaz.com${post.author.image}`
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Desert Skies Aviation",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://desertskiesaviationaz.com/images/desert skies aviation logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://desertskiesaviationaz.com/blog/${params.slug}`
+    }
+  };
+
   return (
     <div className="flex flex-col">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
+        />
+      </head>
       {/* Hero Section */}
       <section className="relative py-24 bg-sky-600">
         <div className="absolute inset-0 bg-gradient-to-r from-sky-800 to-sky-600 opacity-90" />
