@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             <Image
               className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-              src="/FlightPhotos/founder2.JPG"
+              src="/images/founder3.JPG"
               alt="Thomas Ferrier"
               width={1432}
               height={1442}
@@ -47,11 +47,6 @@ export default function AboutPage() {
                 <p className="mt-6 font-semibold">
                   Ready to take off? Let's get started. Your journey begins here.
                 </p>
-                <div className="mt-16 text-sm text-gray-500">
-                  <p className="italic">
-                    Disclaimer: Desert Skies Aviation provides flight instruction services under FAR Part 61. Thomas Ferrier operates as an independent Certified Flight Instructor (CFI) and does not hold an Air Carrier or Operating Certificate. Flight instruction is provided using aircraft rented from FAA-certified facilities or student-provided aircraft that meet all applicable regulations.
-                  </p>
-                </div>
               </div>
             </div>
           </div>

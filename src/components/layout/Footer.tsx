@@ -69,19 +69,13 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <p className="text-sm leading-5 text-gray-500">
+        <div className="mt-8 border-t border-gray-900/10 pt-8">
+          <p className="text-xs text-gray-500 text-center max-w-4xl mx-auto">
+            Disclaimer: Desert Skies Aviation provides flight instruction services under FAR Part 61. Thomas Ferrier operates as an independent Certified Flight Instructor (CFI) and does not hold an Air Carrier or Operating Certificate. Flight instruction is provided using aircraft rented from FAA-certified facilities or student-provided aircraft that meet all applicable regulations.
+          </p>
+          <p className="text-xs text-gray-500 text-center mt-4">
             &copy; {new Date().getFullYear()} Desert Skies Aviation. All rights reserved.
           </p>
-          <div className="mt-2 flex justify-center space-x-4 text-sm">
-            <Link href="/privacy" className="text-gray-500 hover:text-sky-600">
-              Privacy Policy
-            </Link>
-            <span className="text-gray-500">|</span>
-            <Link href="/accessibility" className="text-gray-500 hover:text-sky-600">
-              Accessibility
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
